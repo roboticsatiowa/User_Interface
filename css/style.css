@@ -1,0 +1,39 @@
+div {
+    border-radius: 3px;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#flexcontainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    gap: 4px;
+}
+
+.camera {
+    border: black solid 3px;
+    aspect-ratio: 4/3;
+}
+
+#top {
+    display: flex;
+    width: 100%;
+    height: 48%;
+    gap: 3px;
+}
+
+#bottom {
+    display: flex;
+    height: 50%;
+}
+
+#map {
+    width: 50%;
+    border: black solid 3px;
+}

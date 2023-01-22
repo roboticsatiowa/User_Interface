@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="img-src * 'self' data: https;">
+    <title>Robotics At Iowa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="module" src="../js/map.js"></script>
+</head>
+<body>
+<div id="flexcontainer">
+    <div id="top">
+        <img id="camera1" class="camera">
+        <img id="camera2" class="camera">
+        <img id="camera3" class="camera">
+    </div>
+    <div id="bottom">
+        <div id="map"></div>
+        <div id="telemetry">
+            <b>Speed:</b> 12.2 mph<br>
+            <b>Heading:</b> 187° S<br>
+            <b>Incline:</b> -3°<br>
+            <b>Altitude:</b> 932 ft<br>
+            <b></b> <br>
+        </div>
+    </div>
+</div>
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOZPpgk37DJCQstaqwhI1Wmd09aE1R48k&callback=initMap&v=weekly"
+        defer
+></script>
+<script type="module" src="../js/socket.js"></script>
+</body>
+</html>
