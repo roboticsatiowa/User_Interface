@@ -21,7 +21,7 @@ io.on('connection', function (socket) {
       })
     }
     if (name == "video2") {
-      socket.on('data', function (data) {                     // Camera 2
+      socket.on('data', function (data) {                     // Camera 2 
         const imgElem2 = document.getElementById("camera2")
         imgElem1.src = `data:image/jpeg;base64,${data}`
         imgElem2.src = `data:image/jpeg;base64,${data}`
