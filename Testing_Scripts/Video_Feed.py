@@ -22,7 +22,6 @@ def startTransmission():
             pass
     cam.release()
 
-
 @sio.event
 def connect():
     global connected
