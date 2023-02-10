@@ -10,6 +10,7 @@ connected = False
 
 # Attempting to rewrite the front end.
 
+
 # def startTransmission():
 #     cam = cv2.VideoCapture(0)
 #     print("Starting video transmission")
