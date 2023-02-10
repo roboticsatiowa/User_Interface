@@ -20,7 +20,7 @@ def startTransmission():
             sio.emit('data', data)
         except Exception:
             pass
-    cam.release()
+    cam.release() # test
 
 @sio.event
 def connect():
