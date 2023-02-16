@@ -1,6 +1,47 @@
 // Attempting to rewrite the front end.
+var cv = require('opencv4nodejs');
+var net = require('net');
+var struct = require('python-struct');
+var pickle = require('picklejs');
 
+var HOST = '';
+var PORT = 8089;
 
+var server = net.createServer((socket) => {
+  console.log('Socket created');
+
+  console.log('Socket bind complete');
+
+  console.log('Socket now listening');
+
+  let data = Buffer.alloc(0);
+  var payloadSize = struct.calcsize('L');
+
+  socket.on('data', (msg) => {
+    data = Buffer.concat([data, msg]);
+
+    while (data.length >= payloadSize) {
+      var packedMsgSize = data.slice(0, payloadSize);
+      data = data.slice(payloadSize);
+      var msgSize = struct.unpack('L', packedMsgSize)[0];
+
+      if (data.length < msgSize) {
+        break;
+      }
+
+      var frameData = data.slice(0, msgSize);
+      data = data.slice(msgSize);
+
+      var frame = pickle.loads(frameData);
+      cv.imshow('frame', frame);
+      cv.waitKey(1);
+    }
+  });
+});
+
+server.listen(PORT, HOST, () => {
+  console.log(`Server listening on ${HOST}:${PORT}...`);
+});
 
 //var app = require('express')();
 //var http = require('http').createServer(app);
